@@ -1,0 +1,9 @@
+{
+  "name": "PostgreSQLTool",
+  "description": "Query an external PostgreSQL database",
+  "module": "postgresql_tool.postgresql_tool",
+  "class": "PostgreSQLTool",
+  "args": {
+    "connection_string": "postgresql://user:password@host:port/dbname"
+  }
+}
