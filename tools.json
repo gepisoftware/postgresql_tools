@@ -1,9 +1,29 @@
 {
-  "name": "PostgreSQLTool",
-  "description": "Query an external PostgreSQL database",
+  "name": "PostgreSQL Tool",
+  "description": "Tool to query an external PostgreSQL database",
   "module": "postgresql_tool.postgresql_tool",
   "class": "PostgreSQLTool",
-  "args": {
-    "connection_string": "postgresql://user:password@host:port/dbname"
-  }
+  "args": [
+    {
+      "name": "connection_string",
+      "type": "str",
+      "default": "postgresql://user:password@host:port/dbname",
+      "description": "Connection string to connect to the PostgreSQL database"
+    }
+  ],
+  "commands": [
+    {
+      "name": "run_query",
+      "description": "Executes a SQL query and returns the result",
+      "args": [
+        {
+          "name": "query",
+          "type": "str",
+          "description": "The SQL query to execute"
+        }
+      ]
+    }
+  ],
+  "icon": "📦",
+  "tags": ["database", "postgresql"]
 }
