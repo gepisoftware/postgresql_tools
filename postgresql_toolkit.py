@@ -1,14 +1,16 @@
-from superagi.tools.base_tool import BaseToolkit
-from typing import List
+from abc import ABC
+from superagi.tools.base_tool import BaseToolkit, BaseTool
+from typing import Type, List
+from postgresql_tool import PostgreSQLTool
 
-from .postgresql_tool import PostgreSQLTool
 
-class PostgresToolkit(BaseToolkit):
-    name: str = "postgresql_toolkit"
-    description: str = "Toolkit para consultar PostgreSQL"
+class PostgreSQLToolkit(BaseToolkit, ABC):
+    name: str = "PostgreSQL Toolkit"
+    description: str = "Toolkit to interact with an external PostgreSQL database"
 
-    def get_tools(self) -> List[PostgreSQLTool]:
-        return [PostgreSQLTool()]
+    def get_tools(self) -> List[BaseTool]:
+        return [PostgreSQLTool(connection_string="postgresql://user:password@host:port/dbname")]
 
     def get_env_keys(self) -> List[str]:
-        return ["POSTGRES_CONNECTION"]
+        # Si tu herramienta necesita variables de entorno, aquí se listan
+        return []
